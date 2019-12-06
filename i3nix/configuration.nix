@@ -42,6 +42,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  system.autoUpgrade = {
+	enable = true;
+	channel = https://nixos.org/channels/nixos-19.09;
+  };
 
   nixpkgs.config = {
 	allowUnfree = true;
@@ -57,6 +61,7 @@
 	emacs
 	ethtool
 	f2fs-tools
+	feh
 	file
 	firefox
 	git
@@ -73,8 +78,11 @@
 	ncdu
 	ntfs3g
 	pciutils
+	pinta
 	ranger  
 	rxvt_unicode
+	rofi
+	scrot
 	smartmontools
 	smplayer
 	tlp
@@ -82,12 +90,14 @@
 	tmux
 	tree
 	unclutter
+	viewnior
 	vim
 	vlc 
 	w3m
 	wget
 	which
 	xfsprogs
+	xsel
 	zathura
 	
   ];
@@ -246,6 +256,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stu = {
     isNormalUser = true;
+    description = "Stu Campbell";
     extraGroups = [ "wheel" "sudo" "networkmanager" "vboxuser" "docker"]; # Enable ‘sudo’ for the user.
   };
 
