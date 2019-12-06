@@ -103,9 +103,11 @@
   # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
-  services.acpid.enable = true;
   # services.thinkfan.enable = true;
   services.printing.enable = true;
+
+  services.acpid.enable = true;
+  services.tlp.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -164,6 +166,8 @@
 
   
   fonts = {
+	enableCoreFonts = true;
+	fontconfig.enable = true;
 	enableFontDir = true;
 	enableGhostscriptFonts = true;
 	
@@ -171,6 +175,7 @@
 		google-fonts
 		ubuntu_font_family
 		hermit
+		fira
 		fira-code
 		fira-code-symbols
   	];
