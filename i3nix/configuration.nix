@@ -42,24 +42,54 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nixpkgs.config = {
+	allowUnfree = true;
+  };
+
   environment.systemPackages = with pkgs; [
-	wget 
-	vim 
-	curl 
-	sudo 
-	file 
-	rxvt_unicode 
-	firefox 
+	acpitool
+	autocutsel
+	compton
 	chromium
-	clipmenu 
-	smartmontools
-	tlp
+	dmenu
+	dunst
+	emacs
 	ethtool
-	tpacpi-bat
+	f2fs-tools
+	file
+	firefox
 	git
-	neofetch
+	gparted
 	htop
-	ffmpeg
+	imv
+	libreoffice
+	libnotify
+	lm_sensors
+	mplayer
+	meld
+	mupdf
+	neofetch
+	ncdu
+	ntfs3g
+	pciutils
+	ranger  
+	rxvt_unicode
+	smartmontools
+	smplayer
+	tlp
+	tpacpi-bat
+	tmux
+	tree
+	unclutter
+	vim
+	vlc 
+	w3m
+	wget
+	which
+	xfsprogs
+	zathura
+	
   ];
 
   
@@ -73,7 +103,9 @@
   # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.acpid.enable = true;
+  # services.thinkfan.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -90,7 +122,7 @@
 
 
   services.xserver = {
-	autorun = false;
+	autorun = true;
 	enable = true;
 	layout = "us";
 	libinput.enable = true;
@@ -131,19 +163,85 @@
   };
 
   
-  fonts.fonts = with pkgs; [
-	hermit
-	fira-code
-	fira-code-symbols
-  ];
+  fonts = {
+	enableFontDir = true;
+	enableGhostscriptFonts = true;
+	
+	fonts = with pkgs; [
+		google-fonts
+		ubuntu_font_family
+		hermit
+		fira-code
+		fira-code-symbols
+  	];
+  };
 
 
   ###################################################################
+  #### SystemD ####
+
+  systemd.user.services."urxvtd" = {
+    enable = true;
+    description = "rxvt unicode daemon";
+    wantedBy = [ "default.target" ];
+    path = [ pkgs.rxvt_unicode ];
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStart = "${pkgs.rxvt_unicode}/bin/urxvtd -q -o";
+  };
+
+  systemd.user.services."dunst" = {
+    enable = true;
+    description = "";
+    wantedBy = [ "default.target" ];
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
+  };
+
+  systemd.user.services."unclutter" = {
+    enable = true;
+    description = "hide cursor after X seconds idle";
+    wantedBy = [ "default.target" ];
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStart = "${pkgs.unclutter}/bin/unclutter";
+  };
+
+  systemd.user.services."compton" = {
+    enable = true;
+    description = "";
+    wantedBy = [ "default.target" ];
+    path = [ pkgs.compton ];
+    serviceConfig.Type = "forking";
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStart = "${pkgs.compton}/bin/compton -b --config /home/joedicastro/.compton.conf";
+  };
+
+   systemd.user.services."autocutsel" = {
+    enable = true;
+    description = "AutoCutSel";
+    wantedBy = [ "default.target" ];
+    serviceConfig.Type = "forking";
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStartPre = "${pkgs.autocutsel}/bin/autocutsel -fork";
+    serviceConfig.ExecStart = "${pkgs.autocutsel}/bin/autocutsel -selection PRIMARY -fork";
+  };
+
+
+  ## VIRTUALIZATION
+
+  virtualisation.docker.enable = true;
+  # virtualisation.docker.socketActivation = true;
+  virtualisation.virtualbox.host.enable = true;
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stu = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "sudo" "networkmanager"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "sudo" "networkmanager" "vboxuser" "docker"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release with which your system is to be
@@ -153,4 +251,3 @@
   system.stateVersion = "19.09"; # Did you read the comment?
 
 }
-
