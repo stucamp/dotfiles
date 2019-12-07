@@ -68,6 +68,7 @@
 	ethtool
 	f2fs-tools
 	feh
+	ffmpeg
 	file
 	firefox
 	git
@@ -85,7 +86,6 @@
 	meld
 	mupdf
 	neofetch
-	ncdu
 	ntfs3g
 	oh-my-zsh
 	pciutils
