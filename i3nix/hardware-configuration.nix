@@ -27,6 +27,12 @@
     [ { device = "/dev/disk/by-uuid/f927fc22-c09e-4846-b830-222bb2e2905d"; }
     ];
 
+  fileSystems."/mnt/Files" =
+    { device = "/dev/disk/by-uuid/e878ab45-43c2-46f4-97ba-ba06ac40dd5d";
+      fsType = "ext4";
+    };
+
+
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

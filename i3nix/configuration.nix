@@ -65,9 +65,13 @@
 	file
 	firefox
 	git
+	gcc
+	gdb
+	go
 	gparted
 	htop
 	imv
+	jdk
 	libreoffice
 	libnotify
 	lm_sensors
@@ -81,16 +85,14 @@
 	pinta
 	ranger  
 	rxvt_unicode
-	rofi
 	scrot
 	smartmontools
-	smplayer
 	tlp
 	tpacpi-bat
 	tmux
 	tree
 	unclutter
-	viewnior
+	valgrind
 	vim
 	vlc 
 	w3m
