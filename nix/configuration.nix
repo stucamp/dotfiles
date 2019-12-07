@@ -143,39 +143,52 @@
   };
 
 
-  services.xserver = {
-	autorun = true;
-	enable = true;
-	layout = "us";
-	libinput.enable = true;
-	
-	desktopManager = {
-		default = "none";
-		xterm.enable = false;
-	};
-
-	displayManager = {
-		lightdm.enable = true;
-	};
-
-	windowManager.i3 = {
+  services = {
+	xserver = {
+		autorun = true;
 		enable = true;
-		extraPackages = with pkgs; [
-			dmenu
-			i3status
-			i3lock
-			i3blocks
+		layout = "us";
+		libinput.enable = true;
+		
+		desktopManager = {
+			default = "none";
+			xterm.enable = false;
+		};
+	
+		displayManager = {
+			lightdm.enable = true;
+		};
+	
+		windowManager.i3 = {
+			enable = true;
+			extraPackages = with pkgs; [
+				dmenu
+				i3status
+				i3lock
+				i3blocks
+			];
+		};
+	  };
+	
+	gnome3 = {
+		gnome-keyring.enable = true;
+	};
+
+	actkbd = {
+		enable = true;
+		bindings = [
+			{ keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+			{ keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
 		];
 	};
   };
 
-  services.gnome3 = {
-	gnome-keyring.enable = true;
-  };
-
-
   security.pam.services.lightdm.enableGnomeKeyring = true;
+
   programs = {
+	light = {
+		enable = true;
+	};
 	zsh = {
 		enable = true;
 		interactiveShellInit = ''
