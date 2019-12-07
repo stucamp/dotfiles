@@ -88,6 +88,7 @@
 	neofetch
 	ntfs3g
 	oh-my-zsh
+	openvpn
 	pciutils
 	pinta
 	rxvt_unicode

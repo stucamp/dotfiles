@@ -185,7 +185,7 @@ bar {
 for_window [class="^.*"] border pixel 1
 
 # Background Image
-exec --no-startup-id feh --bg-fill ~/Pictures/Colts.jpg
+exec --no-startup-id feh --bg-fill ~/pictures/kernel.png
 
 # Screenshot
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
