@@ -47,6 +47,12 @@
 	channel = https://nixos.org/channels/nixos-19.09;
   };
 
+  nix.gc = {
+	automatic = true;
+	dates = "weekly";
+	options = "--delete-older-than 30d";
+  };
+
   nixpkgs.config = {
 	allowUnfree = true;
   };
@@ -81,6 +87,7 @@
 	neofetch
 	ncdu
 	ntfs3g
+	oh-my-zsh
 	pciutils
 	pinta
 	ranger  
@@ -101,6 +108,7 @@
 	xfsprogs
 	xsel
 	zathura
+	zsh
 	
   ];
 
@@ -130,8 +138,8 @@
   
   environment.pathsToLink = [ "/libexec" ];
   environment.variables = {
-	TERMINAL = "urxvt";
-  	EDITOR = "vim";
+	TERMINAL = [ "urxvt" ];
+  	EDITOR = [ "emacs" ];
   };
 
 
@@ -168,6 +176,36 @@
 
   security.pam.services.lightdm.enableGnomeKeyring = true;
   programs = {
+	zsh = {
+		enable = true;
+		interactiveShellInit = ''
+			export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+			#Customize oh-my-zsh options
+			ZSH_THEME="robbyrussell"
+			plugins=(git docker)
+
+			bindkey '\e[5~' history-beginning-search-backward
+			bindkey '\e[6~' history-beginning-search-forward
+
+			HISTFILESIZE=50000
+			HISTSIZE=50000
+			setopt SHARE_HISTORY
+			setopt HIST_IGNORE_ALL_DUPS
+			setopt HIST_IGNORE_DUPS
+			setopt INC_APPEND_HISTORY
+			autoload -U compinit && compinit
+			unsetopt menu_complete
+			setopt completealiases
+
+			if [ -f ~/.aliases ]; then
+				source ~/.aliases
+			fi
+
+			source $ZSH/oh-my-zsh.sh
+		'';
+		promptInit = "";
+	};
+
 	mtr.enable = true;
 	gnupg.agent = {
 		enable = true;
@@ -259,6 +297,7 @@
   users.users.stu = {
     isNormalUser = true;
     description = "Stu Campbell";
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "sudo" "networkmanager" "vboxuser" "docker"]; # Enable ‘sudo’ for the user.
   };
 
