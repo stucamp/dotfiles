@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/" . "stu/")
+ ("/home/stu/.emacs.d/" . "auto-save-list/")
+ ("/home/stu/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/stu/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/stu/" (24043 40845 85949 639000) ".emacs_saves/" ".emacs~" ".zcompdump-nix250-5.7.1" ".zcompdump-nixos-5.7.1" ".emacs" ".Xdefaults.d/" "documents/" ".zcompdump" ".histfile" ".zshrc" "go/" ".stu/" ".mono/" ".vim/" ".vimrc" ".fehbg" ".lesshst" "Pictures/" "pictures/" "downloads/" "videos/" ".mplayer/" ".w3m/" ".esd_auth" ".emacs.d/" ".viminfo" ".wget-hsts" ".Xresources" ".bashrc" ".gnome/" ".icons/" ".gitconfig" ".pki/" ".ssh/" ".xsession-errors.old" ".mozilla/" ".bash_history" ".cache/" ".config/" ".local/" ".compose-cache/" ".dbus/" ".xsession-errors" ".Xauthority" ".gnupg/" ".nix-defexpr/" ".nix-profile/" ".urxvt/" "../" "./")
+
+ ("/home/stu/.emacs.d/" (24043 39747 301413 202000) "ido.last" "elpa/" "xresources-theme.el" "auto-save-list/" "../" "./")
+
+ ("/home/stu/.emacs.d/auto-save-list/" (24043 39461 404750 607000) "../" "./")
+
+ ("/home/" (24042 43619 660857 898000) "stu/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
