@@ -30,7 +30,7 @@ set showmatch
 "Searching
 set incsearch
 set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <CR> :noh<CR><CR>
 
 "Movement
 

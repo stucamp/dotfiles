@@ -106,6 +106,7 @@
 	xclip
 	xfsprogs
 	xsel
+	xss-lock
 	zathura
 	zsh
 	
@@ -163,7 +164,7 @@
 				dmenu
 				i3status
 				i3lock
-				i3blocks
+				#i3blocks
 			];
 		};
 	  };
@@ -308,7 +309,7 @@
     isNormalUser = true;
     description = "Stu Campbell";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "sudo" "networkmanager" "vboxuser" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "sudo" "networkmanager" "vboxuser" "docker"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release with which your system is to be
