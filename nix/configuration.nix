@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nix250"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -90,7 +90,6 @@
 	oh-my-zsh
 	pciutils
 	pinta
-	ranger  
 	rxvt_unicode
 	scrot
 	smartmontools
@@ -102,9 +101,9 @@
 	valgrind
 	vim
 	vlc 
-	w3m
 	wget
 	which
+	xclip
 	xfsprogs
 	xsel
 	zathura
@@ -124,7 +123,7 @@
 
   # Enable CUPS to print documents.
   # services.thinkfan.enable = true;
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   services.acpid.enable = true;
   services.tlp.enable = true;
@@ -134,12 +133,11 @@
   hardware.pulseaudio.enable = true;
   
   #### i3 Setup ####
-  ###################################################################
   
   environment.pathsToLink = [ "/libexec" ];
   environment.variables = {
 	TERMINAL = [ "urxvt" ];
-  	EDITOR = [ "emacs" ];
+  	EDITOR = [ "vim" ];
   };
 
 
@@ -186,9 +184,11 @@
   security.pam.services.lightdm.enableGnomeKeyring = true;
 
   programs = {
+
 	light = {
 		enable = true;
 	};
+
 	zsh = {
 		enable = true;
 		interactiveShellInit = ''
@@ -226,7 +226,6 @@
 	};
 	seahorse.enable = true;
   };
-
   
   fonts = {
 	enableCoreFonts = true;
@@ -244,8 +243,6 @@
   	];
   };
 
-
-  ###################################################################
   #### SystemD ####
 
   systemd.user.services."urxvtd" = {
@@ -302,7 +299,6 @@
   ## VIRTUALIZATION
 
   virtualisation.docker.enable = true;
-  # virtualisation.docker.socketActivation = true;
   virtualisation.virtualbox.host.enable = true;
 
 
