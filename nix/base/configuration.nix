@@ -72,13 +72,9 @@
 	file
 	firefox
 	git
-	gcc
-	gdb
-	go
 	gparted
 	htop
 	imv
-	jdk
 	libreoffice
 	libnotify
 	lm_sensors
@@ -99,7 +95,6 @@
 	tmux
 	tree
 	unclutter
-	valgrind
 	vim
 	vlc 
 	wget

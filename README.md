@@ -1,23 +1,9 @@
 # dotfiles
-
-[ansible](./ansible)
-
-[bash](./bash)
-
-[emacs](./emacs)
-
-[i3](./i3)
-
-[i3status](./i3status)
-
-[nixOS](./nix)
-
-[urxvt](./urxvt)
-
-[vim](./vim)
-
-[zsh](./zsh)
-
+|   |   |   |
+|:--------------:|:-----------------------------:|:--------------------------:|
+| [ansible](./ansible) | [bash](./bash)          | [emacs](./emacs)           |
+| [i3](./i3)           | [i3status](./i3status)  | [nixOS](./nix)             |
+| [urxvt](./urxvt)     | [vim](./vim)            | [zsh](./zsh)               |
 
 | **program**    |**link**                                                             |
 |:--------------:|:-------------------------------------------------------------------:|
