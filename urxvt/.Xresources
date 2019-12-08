@@ -73,10 +73,10 @@ URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
 
 ! Resize font size
-URxvt.resize-font.smaller: C-minus
-URxvt.resize-font.bigger: C-plus
-URxvt.resize-font.reset: C-equal
-URxvt.resize-font.show: C-question
+!URxvt.resize-font.smaller: C-minus
+!URxvt.resize-font.bigger: C-plus
+!URxvt.resize-font.reset: C-equal
+!URxvt.resize-font.show: C-question
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
