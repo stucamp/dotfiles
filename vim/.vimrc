@@ -16,8 +16,8 @@ set path+=**
 syntax on
 
 "Spacing and Tabs
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
 
 "UI Config
