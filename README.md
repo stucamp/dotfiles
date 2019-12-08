@@ -1,22 +1,22 @@
 # dotfiles
 
-[ansible](../master/ansible)
+[ansible](./ansible)
 
-[bash](../master/bash)
+[bash](./bash)
 
-[emacs](../master/emacs)
+[emacs](./emacs)
 
-[i3](../master/i3)
+[i3](./i3)
 
-[i3status](../master/i3status)
+[i3status](./i3status)
 
-[nixOS](../master/nix)
+[nixOS](./nix)
 
-[urxvt](../master/urxvt)
+[urxvt](./urxvt)
 
-[vim](../master/vim)
+[vim](./vim)
 
-[zsh](../master/zsh)
+[zsh](./zsh)
 
 
 | **program**    |**link**                                                             |
