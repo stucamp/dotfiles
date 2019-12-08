@@ -1,4 +1,5 @@
 # dotfiles
+<<<<<<< HEAD
 
 [ansible](./ansible)
 
@@ -62,3 +63,14 @@
 | zsh            |                                                                     |
 
 
+=======
+i3\n
+i3status
+vim
+emacs
+urxvt
+bash
+zsh
+nixOS
+other
+>>>>>>> 2000e87b1984fe7c293e1d9ae211183afa63bdef
