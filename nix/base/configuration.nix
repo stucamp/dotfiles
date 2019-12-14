@@ -13,6 +13,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.plymouth.enable = true;
 
   networking.hostName = "nix250"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -24,6 +25,9 @@
   networking.interfaces.enp0s25.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   
 
   # Configure network proxy if necessary
@@ -59,6 +63,7 @@
 
   environment.systemPackages = with pkgs; [
 	acpitool
+	ansible
 	autocutsel
 	compton
 	chromium
@@ -74,7 +79,6 @@
 	git
 	gparted
 	htop
-	imv
 	libreoffice
 	libnotify
 	lm_sensors
@@ -89,7 +93,7 @@
 	pinta
 	rxvt_unicode
 	scrot
-	smartmontools
+	sxiv
 	tlp
 	tpacpi-bat
 	tmux
@@ -127,7 +131,11 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+	enable = true;
+	extraModules = [ pkgs.pulseaudio-modules-bt ];
+	package = pkgs.pulseaudioFull;
+  };
   
   #### i3 Setup ####
   
@@ -139,6 +147,7 @@
 
 
   services = {
+
 	xserver = {
 		autorun = true;
 		enable = true;
@@ -225,12 +234,12 @@
   };
   
   fonts = {
-	enableCoreFonts = true;
 	fontconfig.enable = true;
 	enableFontDir = true;
 	enableGhostscriptFonts = true;
 	
 	fonts = with pkgs; [
+		corefonts
 		google-fonts
 		ubuntu_font_family
 		hermit
