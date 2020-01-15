@@ -50,16 +50,11 @@ Xft.hintstyle: hintmedium
 ! URxvt Settings
 !###################
 URxvt.termName: rxvt
-#define fonts xft:Fira Code:size=12,\
-              xft:Font Awesome:size=12,\
-              xft:Hack:size=12
 
-!URxvt.font: xft:Fira Code:style=Light:size=12
-!URxvt.boldfont: xft:Fira Code:style=Medium:size=12
-!URxvt.italicfont: xft:Fira Code:style=Light:italic:size=12
-!URxvt.bolditalicfont: xft:Fira Code:style=Medium:italic:size=12
-
-URxvt*font: fonts
+URxvt.font: xft:Fira Code:style=Light:size=12
+URxvt.boldfont: xft:Fira Code:style=Medium:size=12
+URxvt.italicfont: xft:Fira Code:style=Light:italic:size=12
+URxvt.bolditalicfont: xft:Fira Code:style=Medium:italic:size=12
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
