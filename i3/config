@@ -9,20 +9,24 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# start unclutter, hides mouse
+exec --no-startup-id unclutter
+
+# start compton, compositor for transparency, etc
+exec --no-startup-id compton
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code, Font-Awesome 12
+font pango: Fira Code Light, FontAwesome 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# xautolock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xautolock -detectsleep -time 3 -locker "i3lock-fancy -g" -notify 30 -notifier "notify-send -u critical -t 1000 -- 'Locking Shit Down in 30'"
 bindsym $mod+Shift+p exec --no-startup-id i3lock-fancy -g
@@ -31,17 +35,48 @@ bindsym $mod+Shift+p exec --no-startup-id i3lock-fancy -g
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Blueman to provide bluetooth applet
+exec --no-startup-id blueman-applet
+
+# Uses light to set brightness to 50% at startup
+exec --no-startup-id light -S 50
+
+# Use tool hotkey for logout/suspend/hibernate/reboot/sutdown modes
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym XF86Tools mode "$mode_system"
+
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status && notify-send -t 500 'volume up'
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status && notify-send -t 500 'volume down'
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status && notify-send -t 500 'muted toggle'
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && notify-send -t 500 'mic toggle'
+set $refresh_volume pkill -RTMIN+10 i3blocks
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_volume
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_volume
+
+# Use light to adjust screen brightness
+set $refresh_brightness pkill -RTMIN+11 i3blocks
+bindsym XF86MonBrightnessUp exec light -A 5 && $refresh_brightness
+bindsym XF86MonBrightnessDown exec light -U 5 && $refresh_brightness
+
+bindsym XF86Search exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
+
+bindsym XF86LaunchA exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
 
 
-bindsym XF86MonBrightnessUp exec light -A 5 && notify-send -t 500 'brightness up' #increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 && notify-send -t 500 'brightness down' # decrease screen brightness
-
+bindsym XF86Explorer exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -53,10 +88,13 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
+#
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
+#
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -111,16 +149,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -145,6 +183,11 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+assign [class="Firefox-esr"] $ws2
+# assign [class="URxvt"] $ws1
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -183,19 +226,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
 }
 
 #focus_follow_mouse no
 for_window [class="^.*"] border pixel 1
 
 # Background Image
-exec --no-startup-id feh --bg-fill ~/pictures/Colts.jpg
+exec_always --no-startup-id feh --bg-fill ~/pictures/wallpapers/current.jpg
 
 # Screenshot
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # All screens
 
 # Snippet
 bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # Area selection
-
 
