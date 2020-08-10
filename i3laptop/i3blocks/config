@@ -141,7 +141,7 @@ separator=false
 #
 [time]
 command=date '+ %a %m/%d  %H:%M'
-interval=5
+interval=60
 
 # Generic media player support
 #

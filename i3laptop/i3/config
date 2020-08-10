@@ -28,8 +28,9 @@ font pango: Fira Code Light, FontAwesome 12
 
 # xautolock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xautolock -detectsleep -time 3 -locker "i3lock-fancy -g" -notify 30 -notifier "notify-send -u critical -t 1000 -- 'Locking Shit Down in 30'"
-bindsym $mod+Shift+p exec --no-startup-id i3lock-fancy -g
+exec --no-startup-id xautolock -detectsleep -time 3 -locker "i3lock-fancy -g && light -S 0 -s sysfs/leds/tpacpi::kbd_backlight" -notify 30 -notifier "notify-send -u critical -t 1000 -- 'Locking Shit Down in 30'"
+
+bindsym $mod+x exec --no-startup-id "i3lock-fancy -g && light -S 0 -s sysfs/leds/tpacpi::kbd_backlight" 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -38,25 +39,14 @@ exec --no-startup-id nm-applet
 # Blueman to provide bluetooth applet
 exec --no-startup-id blueman-applet
 
+exec --no-startup-id urxvt
+exec --no-startup-id urxvt
+
 # Uses light to set brightness to 50% at startup
-exec --no-startup-id light -S 50
+exec --no-startup-id light -S 20
 
 # Use tool hotkey for logout/suspend/hibernate/reboot/sutdown modes
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym XF86Tools mode "$mode_system"
+bindsym XF86Tools exec --no-startup-id /home/stu/Repos/githubs/i3sysdialog/i3sysdialog
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_volume pkill -RTMIN+10 i3blocks
@@ -71,12 +61,10 @@ set $refresh_brightness pkill -RTMIN+11 i3blocks
 bindsym XF86MonBrightnessUp exec light -A 5 && $refresh_brightness
 bindsym XF86MonBrightnessDown exec light -U 5 && $refresh_brightness
 
-bindsym XF86Search exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
-
-bindsym XF86LaunchA exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
-
-
-bindsym XF86Explorer exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"Fira Code 12\\" -show combi"
+# Binding for x250 keys for f9-f12
+bindsym XF86Search exec --no-startup-id "firefox"
+bindsym XF86LaunchA exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"SFNS Display 12\\" -show combi"
+bindsym XF86Explorer exec --no-startup-id "rofi -modi drun -theme sidebar -font \\"SFNS Display 12\\" -show drun"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -149,16 +137,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -187,6 +175,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="Firefox-esr"] $ws2
 # assign [class="URxvt"] $ws1
+assign [class="Code"] $ws3
+for_window [class="^Spotify*"] move to workspace $ws10
+
+for_window [class="I3sysdialog"] floating enable
 
 
 # reload the configuration file
@@ -227,17 +219,18 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3blocks
+	strip_workspace_numbers yes
 }
 
 #focus_follow_mouse no
 for_window [class="^.*"] border pixel 1
 
 # Background Image
-exec_always --no-startup-id feh --bg-fill ~/pictures/wallpapers/current.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/current.jpg
 
 # Screenshot
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # All screens
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
 # Snippet
-bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # Area selection
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
