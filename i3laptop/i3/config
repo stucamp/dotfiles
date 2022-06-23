@@ -9,8 +9,14 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# start gnome-keyring
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
 # start unclutter, hides mouse
 exec --no-startup-id unclutter
+
+# start autocutsel for clipboard management
+exec --no-startup-id autocutsel
 
 # start compton, compositor for transparency, etc
 exec --no-startup-id compton
@@ -46,7 +52,7 @@ exec --no-startup-id urxvt
 exec --no-startup-id light -S 20
 
 # Use tool hotkey for logout/suspend/hibernate/reboot/sutdown modes
-bindsym XF86Tools exec --no-startup-id /home/stu/Repos/githubs/i3sysdialog/i3sysdialog
+bindsym XF86Tools exec --no-startup-id /home/stu/i3sysdialog/i3sysdialog
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_volume pkill -RTMIN+10 i3blocks
@@ -62,7 +68,7 @@ bindsym XF86MonBrightnessUp exec light -A 5 && $refresh_brightness
 bindsym XF86MonBrightnessDown exec light -U 5 && $refresh_brightness
 
 # Binding for x250 keys for f9-f12
-bindsym XF86Search exec --no-startup-id "firefox"
+bindsym XF86Search exec --no-startup-id "brave-browser"
 bindsym XF86LaunchA exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"SFNS Display 12\\" -show combi"
 bindsym XF86Explorer exec --no-startup-id "rofi -modi drun -theme sidebar -font \\"SFNS Display 12\\" -show drun"
 
@@ -173,7 +179,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
-assign [class="Firefox-esr"] $ws2
+assign [class="Brave-browser"] $ws2
 # assign [class="URxvt"] $ws1
 assign [class="Code"] $ws3
 for_window [class="^Spotify*"] move to workspace $ws10

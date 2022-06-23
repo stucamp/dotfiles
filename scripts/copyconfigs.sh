@@ -1,17 +1,60 @@
 #!/bin/sh
 
-GIT_LOC=/mnt/Files/githubs/dotfiles
+TMP=$(pwd)
+GIT_LOC=${TMP%/*}
 
-cp ${HOME}/.bashrc ${GIT_LOC}/bash/.bashrc
-cp ${HOME}/.zshrc ${GIT_LOC}/zsh/.zshrc
-cp ${HOME}/.vimrc ${GIT_LOC}/vim/.vimrc
-cp ${HOME}/.Xresources ${GIT_LOC}/urxvt/.Xresources
-cp ${HOME}/.config/i3/config ${GIT_LOC}/i3/config
-cp ${HOME}/.config/i3status/config ${GIT_LOC}/i3status/config
-cp -r -p ${HOME}/.emacs.d ${GIT_LOC}/emacs/
-cp ${HOME}/.emacs ${GIT_LOC}/emacs/.emacs
+#sudo dpkg-query -f '${binary:Package}\n' -W > "${GIT_LOCK}/packages/packages_list.txt"
+
+BASH=${HOME}/.bashrc
+if [ -f "$BASH" ]; then
+	echo "Copying .bashrc"
+	cp $BASH ${GIT_LOC}/bash/.bashrc
+fi
+
+ZSH=${HOME}/.zshrc
+if [ -f "$ZSH" ]; then
+	echo "Copying .zshrc"
+	cp $ZSH ${GIT_LOC}/zsh/.zshrc
+fi
+
+VIM=${HOME}/.vimrc
+if [ -f "$VIM" ]; then
+	echo "Copying .vimrc"
+	cp $VIM ${GIT_LOC}/vim/.vimrc
+fi
+
+XRES=${HOME}/.Xresources
+if [ -f "$XRES" ]; then
+	echo "Copying .Xresources"
+	cp $XRES ${GIT_LOC}/urxvt/.Xresources
+fi
+
+I3=${HOME}/.config/i3/config
+if [ -f "$I3" ]; then
+	echo "Copying i3 config"
+	cp $I3 ${GIT_LOC}/i3laptop/i3/config
+fi
+
+I3STAT=${HOME}/.config/i3status/config
+if [ -f "$I3STAT" ]; then
+	echo "Copying i3status config"
+	cp $I3STAT ${GIT_LOC}/i3laptop/i3status/config
+fi
+
+EMACSD=${HOME}/.emacs.d
+if [ -d "$EMACSD" ]; then
+	echo "Copying .emacs.d"
+	cp -r -p $EMACSD ${GIT_LOC}/emacs/
+fi
+
+EMACS=${HOME}/.emacs
+if [ -f "$EMACS" ]; then
+	echo "Copying .emacs"
+	cp $EMACS ${GIT_LOC}/emacs/.emacs
+fi
 
 if [ -d "/etc/nixos" ]; then 
-    cp /etc/nixos/configuration.nix ${GIT_LOC}/nix/base/configuration.nix
-    cp /etc/nixos/hardware-configuration.nix ${GIT_LOC}/nix/base/hardware-configuration.nix
+	echo "Coyping nixos files"
+	cp /etc/nixos/configuration.nix ${GIT_LOC}/nix/base/configuration.nix
+	cp /etc/nixos/hardware-configuration.nix ${GIT_LOC}/nix/base/hardware-configuration.nix
 fi
