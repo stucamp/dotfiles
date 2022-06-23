@@ -3,7 +3,7 @@
 TMP=$(pwd)
 GIT_LOC=${TMP%/*}
 
-#sudo dpkg-query -f '${binary:Package}\n' -W > "${GIT_LOCK}/packages/packages_list.txt"
+dpkg-query -f '${binary:Package}\n' -W > ${GIT_LOC}/packages/packages_list.txt
 
 BASH=${HOME}/.bashrc
 if [ -f "$BASH" ]; then
