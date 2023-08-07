@@ -1,4 +1,4 @@
-xFT.DPi:   96 
+Xft.dpi:   96 
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.hintstyle: hintmedium
@@ -7,43 +7,25 @@ Xft.hintstyle: hintmedium
 ! Colors
 !###################
 
-
-! special
-*.foreground:   #a5a2a2
-*.background:   #090300
-*.cursorColor:  #a5a2a2
-
-! black
-*.color0:       #090300
-*.color8:       #5c5855
-
-! red
-*.color1:       #db2d20
-*.color9:       #db2d20
-
-! green
-*.color2:       #01a252
-*.color10:      #01a252
-
-! yellow
-*.color3:       #fded02
-*.color11:      #fded02
-
-! blue
-*.color4:       #01a0e4
-*.color12:      #01a0e4
-
-! magenta
-*.color5:       #a16a94
-*.color13:      #a16a94
-
-! cyan
-*.color6:       #b5e4f4
-*.color14:      #b5e4f4
-
-! white
-*.color7:       #a5a2a2
-*.color15:      #f7f7f7
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #1A1A1A
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
 
 
 !###################
@@ -55,6 +37,8 @@ URxvt.font: xft:Fira Code:style=Light:size=12
 URxvt.boldfont: xft:Fira Code:style=Medium:size=12
 URxvt.italicfont: xft:Fira Code:style=Light:italic:size=12
 URxvt.bolditalicfont: xft:Fira Code:style=Medium:italic:size=12
+
+!URxvt*font: xft:Fira Code:style=Light:size=12
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
