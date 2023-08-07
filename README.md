@@ -1,8 +1,10 @@
 # dotfiles
-|:--------------:|:-----------------------------:|:--------------------------:|
-| [ansible](./ansible) |                         |                            |
-| [i3](./i3)           | [i3status](./i3status)  | [nixOS](./nix)             |
-| [urxvt](./urxvt)     | [nvim](./nvim)            | [zsh](./zsh)             |
+ [ansible](./ansible)
+ [i3](./i3)           
+ [nixOS](./nix)
+ [urxvt](./urxvt)     
+ [nvim](./nvim)            
+ [zsh](./zsh) 
 
 | **program**    |**link**                                                    |
 |:--------------:|:----------------------------------------------------------:|
