@@ -1,0 +1,51 @@
+{
+    "child": {
+        "child1": {
+            "directory": "\/home\/stu",
+            "height": 1408,
+            "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+            "readOnly": false,
+            "synchronizedInput": true,
+            "type": "Terminal",
+            "uuid": "bc552ff1-9276-4fa9-8417-957acdf74a2c",
+            "width": 1280
+        },
+        "child2": {
+            "child1": {
+                "directory": "\/home\/stu",
+                "height": 704,
+                "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                "readOnly": false,
+                "synchronizedInput": true,
+                "type": "Terminal",
+                "uuid": "e08c8047-29bc-4cf8-ace7-3559641326be",
+                "width": 1279
+            },
+            "child2": {
+                "directory": "\/home\/stu",
+                "height": 703,
+                "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                "readOnly": false,
+                "synchronizedInput": true,
+                "type": "Terminal",
+                "uuid": "6b555c0b-a15e-4a37-8227-26a308c46730",
+                "width": 1279
+            },
+            "orientation": 1,
+            "position": 50,
+            "ratio": 0.5,
+            "type": "Paned"
+        },
+        "orientation": 0,
+        "position": 50,
+        "ratio": 0.5,
+        "type": "Paned"
+    },
+    "height": 1408,
+    "name": "${title}",
+    "synchronizedInput": false,
+    "type": "Session",
+    "uuid": "a28fa9ce-744e-45cb-ad8f-c3ede867c66a",
+    "version": "1.0",
+    "width": 2560
+}
