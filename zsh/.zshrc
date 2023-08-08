@@ -99,10 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=$PATH:/usr/local/go/bin
+alias vim="/opt/nvim-linux64/bin/nvim"
+alias nvim="/opt/nvim-linux64/bin/nvim"
 
-alias vim=/opt/nvim-linux64/bin/nvim
-alias nvim=/opt/nvim-linux64/bin/nvim
+export PATH=$PATH:/usr/local/go/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
