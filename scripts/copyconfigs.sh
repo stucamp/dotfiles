@@ -50,13 +50,13 @@ fi
 NVIM=${HOME}/.config/nvim/
 if [ -d "$NVIM" ]; then
     echo "Copying nvim config"
-    cp -r $NVIM ${GIT_LOC}/nvim/
+    cp -r $NVIM/* ${GIT_LOC}/nvim
 fi 
 
 TILIX=${HOME}/.config/tilix/
 if [ -d "$TILIX" ]; then
     echo "Copying tilix config"
-    cp -r $TILIX ${GIT_LOC}/tilix/
+    cp -r $TILIX/* ${GIT_LOC}/tilix
 fi
 
 if [ -d "/etc/nixos" ]; then 
