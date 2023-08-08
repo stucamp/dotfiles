@@ -5,12 +5,6 @@ GIT_LOC=${TMP%/*}
 
 dpkg-query -f '${binary:Package}\n' -W > ${GIT_LOC}/packages/packages_list.txt
 
-BASH=${HOME}/.bashrc
-if [ -f "$BASH" ]; then
-	echo "Copying .bashrc"
-	cp $BASH ${GIT_LOC}/bash/.bashrc
-fi
-
 ZSH=${HOME}/.zshrc
 if [ -f "$ZSH" ]; then
 	echo "Copying .zshrc"
@@ -51,6 +45,18 @@ EMACS=${HOME}/.emacs
 if [ -f "$EMACS" ]; then
 	echo "Copying .emacs"
 	cp $EMACS ${GIT_LOC}/emacs/.emacs
+fi
+
+NVIM=${HOME}/.config/nvim/
+if [ -d "$NVIM" ]; then
+    echo "Copying nvim config"
+    cp -r $NVIM ${GIT_LOC}/nvim/
+fi 
+
+TILIX=${HOME}/.config/tilix/
+if [ -d "$TILIX" ]; then
+    echo "Copying tilix config"
+    cp -r $TILIX ${GIT_LOC}/tilix/
 fi
 
 if [ -d "/etc/nixos" ]; then 
