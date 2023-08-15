@@ -6,27 +6,34 @@ Xft.hintstyle: hintmedium
 !###################
 ! Colors
 !###################
-
-! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #1A1A1A
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
-
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 !###################
 ! URxvt Settings
@@ -55,8 +62,8 @@ URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
 
 ! Resize font size
-!URxvt.resize-font.smaller: C-minus
-!URxvt.resize-font.bigger: C-plus
+URxvt.resize-font.smaller: <C-Up>
+URxvt.resize-font.bigger: <C-Down>
 !URxvt.resize-font.reset: C-equal
 !URxvt.resize-font.show: C-question
 

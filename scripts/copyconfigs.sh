@@ -35,6 +35,12 @@ if [ -f "$I3STAT" ]; then
 	cp $I3STAT ${GIT_LOC}/i3laptop/i3status/config
 fi
 
+AWM=${HOME}/.config/awesome/
+if [ -d "$AWM" ]; then
+	echo "Copying .config/awesome/"
+	cp -r -p $AWM ${GIT_LOC}/awesome
+fi
+
 EMACSD=${HOME}/.emacs.d
 if [ -d "$EMACSD" ]; then
 	echo "Copying .emacs.d"
@@ -50,13 +56,13 @@ fi
 NVIM=${HOME}/.config/nvim/
 if [ -d "$NVIM" ]; then
     echo "Copying nvim config"
-    cp -r $NVIM/* ${GIT_LOC}/nvim
+    cp -r -p $NVIM/* ${GIT_LOC}/nvim
 fi 
 
 TILIX=${HOME}/.config/tilix/
 if [ -d "$TILIX" ]; then
     echo "Copying tilix config"
-    cp -r $TILIX/* ${GIT_LOC}/tilix
+    cp -r -p $TILIX/* ${GIT_LOC}/tilix
 fi
 
 if [ -d "/etc/nixos" ]; then 
