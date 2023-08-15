@@ -591,11 +591,13 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
-awful.spawn.with_shell("/usr/bin/autocutsel")
-awful.spawn.with_shell("/usr/bin/picom")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11")
-awful.spawn.with_shell("/usr/bin/feh --bg-fill ~/Pictures/wallpapers/current.png")
+awful.util.spawn("/usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11")
+awful.util.spawn("/usr/bin/dbus-update-activation-environment --all")
 
 awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ 50%")
 awful.util.spawn("light -S 30")
+
+awful.spawn.with_shell("/usr/bin/autocutsel")
+awful.spawn.with_shell("/usr/bin/picom")
+awful.spawn.with_shell("/usr/bin/feh --bg-fill ~/Pictures/wallpapers/current.png")
 
