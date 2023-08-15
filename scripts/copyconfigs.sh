@@ -38,13 +38,13 @@ fi
 AWM=${HOME}/.config/awesome/
 if [ -d "$AWM" ]; then
 	echo "Copying .config/awesome/"
-	cp -r -p $AWM ${GIT_LOC}/awesome
+	cp -r -p $AWM ${GIT_LOC}/
 fi
 
 EMACSD=${HOME}/.emacs.d
 if [ -d "$EMACSD" ]; then
 	echo "Copying .emacs.d"
-	cp -r -p $EMACSD ${GIT_LOC}/emacs/
+	cp -r -p $EMACSD ${GIT_LOC}/
 fi
 
 EMACS=${HOME}/.emacs
@@ -56,13 +56,13 @@ fi
 NVIM=${HOME}/.config/nvim/
 if [ -d "$NVIM" ]; then
     echo "Copying nvim config"
-    cp -r -p $NVIM/* ${GIT_LOC}/nvim
+    cp -r -p $NVIM ${GIT_LOC}/
 fi 
 
 TILIX=${HOME}/.config/tilix/
 if [ -d "$TILIX" ]; then
     echo "Copying tilix config"
-    cp -r -p $TILIX/* ${GIT_LOC}/tilix
+    cp -r -p $TILIX ${GIT_LOC}/
 fi
 
 if [ -d "/etc/nixos" ]; then 
