@@ -78,9 +78,9 @@ awful.layout.layouts = {
 --    awful.layout.suit.max.fullscreen,
 --    awful.layout.suit.magnifier,
 --    awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
+--    awful.layout.suit.corner.ne,
+--    awful.layout.suit.corner.sw,
+--    awful.layout.suit.corner.se,
 }
 -- }}}
 
@@ -253,6 +253,10 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioMicMute", function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end),
     awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("light -A 5") end),
     awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("light -U 5") end),
+    awful.key({}, "XF86Search", function () awful.util.spawn("google-chrome") end),
+    awful.key({}, "XF86LaunchA ", function () awful.util.spawn("") end),
+    awful.key({}, "XF86Explorer", function () awful.util.spawn("rofi -modi drun -theme sidebar -font \"SFNS Display 12\" -show drun") end),
+    awful.key({}, "XF86Tools", function () awful.util.spawn("") end),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -595,9 +599,3 @@ awful.spawn.with_shell("/usr/bin/feh --bg-fill ~/Pictures/wallpapers/current.png
 awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ 50%")
 awful.util.spawn("light -S 30")
 
---[[
-bindsym XF86Search exec --no-startup-id "brave-browser"
-bindsym XF86LaunchA exec --no-startup-id "rofi -combi-modi window#drun#ssh -theme sidebar -font \\"SFNS Display 12\\" -show combi"
-bindsym XF86Explorer exec --no-startup-id "rofi -modi drun -theme sidebar -font \\"SFNS Display 12\\" -show drun"
-bindsym XF86Tools exec --no-startup-id /home/stu/i3sysdialog/i3sysdialog
-]]--
