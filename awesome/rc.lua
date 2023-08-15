@@ -254,7 +254,7 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("light -A 5") end),
     awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("light -U 5") end),
     awful.key({}, "XF86Search", function () awful.util.spawn("google-chrome") end),
-    awful.key({}, "XF86LaunchA ", function () awful.util.spawn("") end),
+    --awful.key({}, "XF86LaunchA ", function () awful.util.spawn("google-chrome") end),
     awful.key({}, "XF86Explorer", function () awful.util.spawn("rofi -modi drun -theme sidebar -font \"SFNS Display 12\" -show drun") end),
     awful.key({}, "XF86Tools", function () awful.util.spawn("") end),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -591,11 +591,11 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
-awful.util.spawn("/usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11")
-awful.util.spawn("/usr/bin/dbus-update-activation-environment --all")
+awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11")
+awful.spawn.with_shell("/usr/bin/dbus-update-activation-environment --all")
 
-awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ 50%")
-awful.util.spawn("light -S 30")
+awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ 50%")
+awful.spawn.with_shell("light -S 30")
 
 awful.spawn.with_shell("/usr/bin/autocutsel")
 awful.spawn.with_shell("/usr/bin/picom")

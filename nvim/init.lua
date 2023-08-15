@@ -286,6 +286,7 @@ require('nvim-treesitter.configs').setup {
     'rust',
     'typescript',
     'vimdoc',
+    'yaml',
     'zig',
   },
 
@@ -421,6 +422,7 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
+  yamlls = {},
   zls = {},
 }
 
