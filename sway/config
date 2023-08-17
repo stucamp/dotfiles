@@ -25,8 +25,8 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output DP-1 bg /home/stu/Pictures/wallpapers/current.jpg fill
-output DP-2 bg /home/stu/Pictures/wallpapers/current.jpg fill
+output DP-1 bg /home/stu/Pictures/wallpapers/2560x1440.svg fill
+output DP-2 bg /home/stu/Pictures/wallpapers/2560x1440.svg fill
 #
 # Example configuration:
 #
@@ -236,5 +236,5 @@ seat * hide_cursor when-typing enable
 seat * hide_cursor 3000
 gaps inner 10
 
-output DP-1 pos 0 0
-output DP-2 pos 0 900
+output DP-1 pos 2560 0
+output DP-2 pos 0 0
