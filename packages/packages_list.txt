@@ -91,6 +91,7 @@ ethtool
 f2fs-tools
 fakeroot
 fdisk
+feh
 file
 findutils
 firefox-esr
@@ -109,6 +110,7 @@ fonts-liberation
 fonts-liberation-sans-narrow
 fonts-noto-mono
 fonts-quicksand
+fonts-urw-base35
 foot
 fuse3
 fzf
@@ -152,6 +154,8 @@ gpgconf
 gpgsm
 gpgv
 grep
+grim
+grimshot
 groff-base
 grub-common
 grub-efi-amd64
@@ -199,6 +203,7 @@ iucode-tool
 iw
 javascript-common
 jp2a
+jq
 kbd
 keyboard-configuration
 keyutils
@@ -428,6 +433,9 @@ libgpm2:amd64
 libgprofng0:amd64
 libgraphene-1.0-0:amd64
 libgraphite2-3:amd64
+libgs-common
+libgs10:amd64
+libgs10-common
 libgsm1:amd64
 libgssapi-krb5-2:amd64
 libgssdp-1.6-0:amd64
@@ -469,10 +477,14 @@ libical3:amd64
 libice6:amd64
 libicu-dev:amd64
 libicu72:amd64
+libid3tag0:amd64
+libidn12:amd64
 libidn2-0:amd64
 libiec61883-0:amd64
 libigdgmm12:amd64
+libijs-0.35:amd64
 libimath-3-1-29:amd64
+libimlib2:amd64
 libinih1:amd64
 libinput-bin
 libinput10:amd64
@@ -490,9 +502,12 @@ libiw30:amd64
 libjack-jackd2-0:amd64
 libjansson4:amd64
 libjbig0:amd64
+libjbig2dec0:amd64
 libjemalloc2:amd64
 libjim0.81:amd64
+libjpeg-turbo-progs
 libjpeg62-turbo:amd64
+libjq1:amd64
 libjs-jquery
 libjs-sphinxdoc
 libjs-underscore
@@ -590,6 +605,8 @@ libnl-3-200:amd64
 libnl-genl-3-200:amd64
 libnl-route-3-200:amd64
 libnm0:amd64
+libnotify-bin
+libnotify4:amd64
 libnpth0:amd64
 libnsl-dev:amd64
 libnsl2:amd64
@@ -601,6 +618,7 @@ libnuma1:amd64
 libobjc-13-dev:amd64
 libobjc4:amd64
 libogg0:amd64
+libonig5:amd64
 libopenal-data
 libopenal1:amd64
 libopenexr-3-1-30:amd64
@@ -622,6 +640,7 @@ libpangocairo-1.0-0:amd64
 libpangoft2-1.0-0:amd64
 libpangomm-1.4-1v5:amd64
 libpangoxft-1.0-0:amd64
+libpaper-utils
 libpaper1:amd64
 libpcap0.8:amd64
 libpci3:amd64
@@ -711,6 +730,7 @@ libsoxr0:amd64
 libspa-0.2-modules:amd64
 libspandsp2:amd64
 libspdlog1.10:amd64
+libspectre1:amd64
 libspeex1:amd64
 libspeexdsp1:amd64
 libsqlite3-0:amd64
@@ -751,6 +771,7 @@ libtool-bin
 libtree-sitter0:amd64
 libtry-tiny-perl
 libtsan2:amd64
+libturbojpeg0:amd64
 libtwolame0:amd64
 libu2f-udev
 libubsan1:amd64
@@ -1041,6 +1062,7 @@ shim-helpers-amd64-signed
 shim-signed:amd64
 shim-signed-common
 shim-unsigned
+slurp
 smartmontools
 sound-theme-freedesktop
 sqlite3
@@ -1094,6 +1116,7 @@ whiptail
 wireless-regdb
 wireless-tools
 wireplumber
+wl-clipboard
 wofi
 wpasupplicant
 x11-common
@@ -1118,6 +1141,7 @@ xtrlock
 xwayland
 xxd
 xz-utils
+yudit-common
 zip
 zlib1g:amd64
 zlib1g-dev:amd64

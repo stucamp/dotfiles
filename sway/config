@@ -234,3 +234,9 @@ output eDP-1
 
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*
+
+# Screenshot
+bindsym --release Print exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y-%m-%d_%H%M%S).png
+bindsym --release Shift+Print exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y-%m-%d_%H%M%S).png
+bindsym --release Ctrl+Print exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y-%m-%d_%H%M%S).png
+bindsym --release $mod+Print exec grimshot --notify save screen ~/Pictures/screenshots/screen_$(date +%Y-%m-%d_%H%M%S).png
