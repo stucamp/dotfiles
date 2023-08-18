@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias nvim="/opt/nvim-linux64/bin/nvim"
+alias hf="history | fzf -e"
 export PATH=$PATH:/usr/local/go/bin:/opt/zig
 
 export NVM_DIR="$HOME/.nvm"

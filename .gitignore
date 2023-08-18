@@ -3,3 +3,4 @@ ido.last
 smex-items
 nvim/plugin
 nvim/pack
+nvim/lazy-lock.json

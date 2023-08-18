@@ -1,43 +1,24 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term foot
+
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
-include /etc/sway/config-vars.d/*
-
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output DP-1 bg /home/stu/Pictures/wallpapers/2560x1440.svg fill
-output DP-2 bg /home/stu/Pictures/wallpapers/2560x1440.svg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+set $menu wofi --show run 
 
 ### Idle configuration
 #
 # Example configuration:
-#
+set $lock swaylock -c 000000
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -47,19 +28,22 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+# Manually lock screen and turn them off
+set $lockman exec sh ~/.config/sway/lockman.sh
+bindsym $mod+Escape exec $lockman
+
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+
+# Volume Controles
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Media player controls
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
 
 ### Key bindings
 #
@@ -203,38 +187,36 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ebdbb2
-        background #282828
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
 
-
-default_border none
-default_floating_border none
-default_border pixel 2
-
-include /etc/sway/config.d/*
-
+# Start up applications/settings
+# Start sway with volume at 50%
+exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
+# Starts clipboard manager
 exec --no-startup-id autocutsel
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+# Starts gnome-keyring
+exec --no-startup-id "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
+# Starts bluetooth system tray applet
+exec --no-startup-id blueman-applet
+
+output DP-1 bg /home/stu/Pictures/wallpapers/sun.png fill
+output DP-2 bg /home/stu/Pictures/wallpapers/earth.jpg fill
+output DP-3 bg /home/stu/Pictures/wallpapers/moon.jpg fill
 
 seat * hide_cursor when-typing enable
 seat * hide_cursor 3000
+
+default_border none
+default_floating_border none
+default_border pixel 1
 gaps inner 10
 
-output DP-1 pos 2560 0
-output DP-2 pos 0 0
+# Sets monitor laye landscape/landscape/profile
+output DP-1 pos 0,375
+output DP-2 pos 2560,375
+output DP-3 pos 5120,0 res 1920x1080 transform 90
+
+include /etc/sway/config.d/*
+include /etc/sway/config-vars.d/*

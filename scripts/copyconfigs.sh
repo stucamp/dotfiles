@@ -65,6 +65,18 @@ if [ -d "$TILIX" ]; then
     cp -r -p $TILIX ${GIT_LOC}/
 fi
 
+SWAY=${HOME}/.config/sway/
+if [ -d "$SWAY" ]; then
+    echo "Copying sway config"
+    cp -r -p $SWAY ${GIT_LOC}/
+fi
+
+FOOT=${HOME}/.config/foot/
+if [ -d "$FOOT" ]; then
+    echo "Copying foot config"
+    cp -r -p $FOOT ${GIT_LOC}/
+fi
+
 if [ -d "/etc/nixos" ]; then 
 	echo "Coyping nixos files"
 	cp /etc/nixos/configuration.nix ${GIT_LOC}/nix/base/configuration.nix
