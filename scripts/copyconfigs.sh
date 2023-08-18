@@ -77,6 +77,12 @@ if [ -d "$FOOT" ]; then
     cp -r -p $FOOT ${GIT_LOC}/
 fi
 
+WAYBAR=${HOME}/.config/waybar/
+if [ -d "$WAYBAR" ]; then
+    echo "Copying waybar config"
+    cp -r -p $WAYBAR ${GIT_LOC}/
+fi
+
 if [ -d "/etc/nixos" ]; then 
 	echo "Coyping nixos files"
 	cp /etc/nixos/configuration.nix ${GIT_LOC}/nix/base/configuration.nix
