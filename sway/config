@@ -191,6 +191,12 @@ bar {
     swaybar_command waybar
 }
 
+# Set CapsLock to Escape (keep Esc as well)
+input "type:keyboard" xkb_options caps:escape
+# Turns of mouse acceloration
+
+input "type:pointer" accel_profile flat
+
 # Start up applications/settings
 # Start sway with volume at 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
