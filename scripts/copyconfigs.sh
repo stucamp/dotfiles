@@ -83,6 +83,12 @@ if [ -d "$WAYBAR" ]; then
     cp -r -p $WAYBAR ${GIT_LOC}/
 fi
 
+WOFI=${HOME}/.config/wofi/
+if [ -d "$WOFI" ]; then
+    echo "Copying wofi config"
+    cp -r -p $WOFI ${GIT_LOC}/
+fi
+
 if [ -d "/etc/nixos" ]; then 
 	echo "Coyping nixos files"
 	cp /etc/nixos/configuration.nix ${GIT_LOC}/nix/base/configuration.nix
