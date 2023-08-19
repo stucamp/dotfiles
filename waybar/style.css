@@ -33,7 +33,7 @@ window#waybar {
     color: white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+#clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
     padding: 0 5px;
     margin: 0 10px;
 }
