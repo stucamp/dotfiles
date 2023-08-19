@@ -1,4 +1,6 @@
+###############################################################################
 ### Variables
+###############################################################################
 
 # Logo key. Use Mod1 for Alt Mod4 for Win 
 set $mod Mod4
@@ -15,25 +17,32 @@ set $term foot
 # Your preferred application launcher
 set $menu wofi --show drun
 
+###############################################################################
 ### Idle configuration
-#
+###############################################################################
+
 # Example configuration:
 set $lock swaylock -c 000000
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' \
-         resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+###############################################################################
 # Manually lock screen and turn them off
+###############################################################################
+
 set $lockman exec sh ~/.config/sway/lockman.sh
 bindsym $mod+Escape exec $lockman
 
+###############################################################################
 ### Input configuration
+###############################################################################
 bindsym --locked {
 
 # Volume Controls
@@ -57,11 +66,10 @@ bindsym {
 # Function Keys
     XF86Search exec $menu
 }
-
 ### Key bindings
-#
+###############################################################################
 # Basics:
-#
+###############################################################################
 # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -81,13 +89,12 @@ bindsym {
 # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-# Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m \
-    'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-#
+###############################################################################
 # Moving around:
-#
+###############################################################################
 bindsym {
 
 # Move your focus around
@@ -115,9 +122,10 @@ bindsym {
     $mod+Shift+Right move right
 }
 
-#
+###############################################################################
 # Workspaces:
-#
+###############################################################################
+
 bindsym {
 
 # Switch to workspace
@@ -147,9 +155,10 @@ bindsym {
 # We just use 1-10 as the default.
 }
 
-#
+###############################################################################
 # Layout stuff:
-#
+###############################################################################
+
 bindsym {
 
 # You can "split" the current object of your focus with
@@ -176,9 +185,10 @@ bindsym {
     $mod+a focus parent
 }
 
-#
+###############################################################################
 # Scratchpad:
-#
+###############################################################################
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 bindsym {
@@ -223,26 +233,28 @@ bar {
     swaybar_command waybar
 }
 
-# Set CapsLock to Escape (keep Esc as well)
-input "type:keyboard" xkb_options caps:escape
-
-
-# Turns off mouse acceleration
-# input "type:pointer" accel_profile flat
-
+###############################################################################
 # Start up applications/settings
-
-# Start clipman clipboard manager
-exec wl-paste -t text --watch clipman store --no-persist
+###############################################################################
 
 # Start sway with volume at 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
+
+# Start sway with brightness at 30%
+#exec --no-startup-id light -S 30
+
+# Start clipman clipboard manager
+exec wl-paste -t text --watch clipman store --no-persist
 
 # Starts gnome-keyring
 exec --no-startup-id "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 
 # Starts bluetooth system tray applet
 #exec --no-startup-id blueman-applet
+
+###############################################################################
+# Windows and UI
+###############################################################################
 
 seat * {
     hide_cursor when-typing enable
@@ -254,6 +266,15 @@ default_floating_border none
 default_border pixel 1
 gaps inner 10
 
+# Set CapsLock to Escape (keep Esc as well)
+input "type:keyboard" xkb_options caps:escape
+
+# Turns of mouse acceloration
+# input "type:pointer" accel_profile flat
+
+###############################################################################
+# Displays
+###############################################################################
 # Sets monitor laye landscape/landscape/profile
 output DP-1 {
     position 0,375
@@ -269,6 +290,19 @@ output DP-3 {
     resolution 1920x1080 
     transform 90
 }
+
+###############################################################################
+# Screenshot
+###############################################################################
+
+bindsym --release Print exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release Shift+Print exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release Ctrl+Print exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+Print exec grimshot --notify save screen ~/Pictures/screenshots/screen_$(date +%Y_%m_%d_%H%M%S).png
+
+###############################################################################
+# Includes
+###############################################################################
 
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*
