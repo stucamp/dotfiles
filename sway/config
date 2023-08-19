@@ -1,4 +1,6 @@
+###############################################################################
 ### Variables
+###############################################################################
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -15,26 +17,34 @@ set $term foot
 # Your preferred application launcher
 set $menu wofi --show drun
 
+###############################################################################
 ### Idle configuration
-#
+###############################################################################
+
 # Example configuration:
 set $lock swaylock -c 000000
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+###############################################################################
 # Manually lock screen and turn them off
+###############################################################################
+
 set $lockman exec sh ~/.config/sway/lockman.sh
 bindsym $mod+Escape exec $lockman
 
+###############################################################################
 ### Input configuration
+###############################################################################
 
-# Volume Controls
+# Volume Controles
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -45,15 +55,15 @@ bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPause exec playerctl play-pause
 bindsym --locked xf86audionext exec playerctl next
 bindsym --locked xf86audioprev exec playerctl previous
-
 # Monitor brightness using Light
+
 bindsym --locked xf86MonBrightnessUp exec light -A 5 
 bindsym --locked xf86MonBrightnessDown exec light -U 5
 
 ### Key bindings
-#
+###############################################################################
 # Basics:
-#
+###############################################################################
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -75,9 +85,11 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
+
+###############################################################################
 # Moving around:
-#
+###############################################################################
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -101,9 +113,11 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
+###############################################################################
 # Workspaces:
-#
+###############################################################################
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -129,9 +143,11 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
+###############################################################################
 # Layout stuff:
-#
+###############################################################################
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -154,9 +170,11 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+        
+###############################################################################
 # Scratchpad:
-#
+###############################################################################
+        
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -166,9 +184,11 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
+###############################################################################
 # Resizing containers:
-#
+###############################################################################
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -196,13 +216,9 @@ bar {
     swaybar_command waybar
 }
 
-# Set CapsLock to Escape (keep Esc as well)
-input "type:keyboard" xkb_options caps:escape
-# Turns of mouse acceloration
-
-input "type:pointer" accel_profile flat
-
+###############################################################################
 # Start up applications/settings
+###############################################################################
 
 # Start sway with volume at 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
@@ -211,33 +227,57 @@ exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
 exec --no-startup-id light -S 30
 
 # Start clipman clipboard manager
-exec wl-paste -t text --watch clipman store
+exec wl-paste -t text --watch clipman store --no-persist
 
 # Starts gnome-keyring
 exec --no-startup-id "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 
 # Starts bluetooth system tray applet
-# exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 
-output eDP-1 {
-    background /home/stu/Pictures/wallpapers/current.jpg fill
+
+###############################################################################
+# Windows and UI
+###############################################################################
+
+seat * {
+    hide_cursor when-typing enable
+    hide_cursor 3000
 }
-
-seat * hide_cursor when-typing enable
-seat * hide_cursor 3000
 
 default_border none
 default_floating_border none
 default_border pixel 1
 gaps inner 10
 
+# Set CapsLock to Escape (keep Esc as well)
+input "type:keyboard" xkb_options caps:escape
+
+# Turns of mouse acceloration
+input "type:pointer" accel_profile flat
+
+
+###############################################################################
+# Displays
+###############################################################################
+
 # Sets monitor laye landscape/landscape/profile
+output eDP-1 {
+    background /home/stu/Pictures/wallpapers/current.jpg fill
+}
+
+###############################################################################
+# Screenshot
+###############################################################################
+
+bindsym --release Print exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release Shift+Print exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release Ctrl+Print exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+Print exec grimshot --notify save screen ~/Pictures/screenshots/screen_$(date +%Y_%m_%d_%H%M%S).png
+
+###############################################################################
+# Includes
+###############################################################################
 
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*
-
-# Screenshot
-bindsym --release Print exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y-%m-%d_%H%M%S).png
-bindsym --release Shift+Print exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y-%m-%d_%H%M%S).png
-bindsym --release Ctrl+Print exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y-%m-%d_%H%M%S).png
-bindsym --release $mod+Print exec grimshot --notify save screen ~/Pictures/screenshots/screen_$(date +%Y-%m-%d_%H%M%S).png
