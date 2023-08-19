@@ -2,7 +2,7 @@
 ### Variables
 ###############################################################################
 
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt Mod4 for Win 
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -43,23 +43,29 @@ bindsym $mod+Escape exec $lockman
 ###############################################################################
 ### Input configuration
 ###############################################################################
+bindsym --locked {
 
-# Volume Controles
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Volume Controls
+    XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Media player controls
-bindsym --locked XF86AudioPlay exec playerctl play-pause
-bindsym --locked XF86AudioPause exec playerctl play-pause
-bindsym --locked xf86audionext exec playerctl next
-bindsym --locked xf86audioprev exec playerctl previous
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioPause exec playerctl play-pause
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
+}
+bindsym {
+
 # Monitor brightness using Light
+    XF86MonBrightnessUp exec light -A 5 
+    XF86MonBrightnessDown exec light -U 5
 
-bindsym --locked xf86MonBrightnessUp exec light -A 5 
-bindsym --locked xf86MonBrightnessDown exec light -U 5
-
+# Function Keys
+    XF86Search exec $menu
+}
 ### Key bindings
 ###############################################################################
 # Basics:
@@ -89,128 +95,139 @@ bindsym --locked xf86MonBrightnessDown exec light -U 5
 ###############################################################################
 # Moving around:
 ###############################################################################
+bindsym {
 
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+# Move your focus around
+    $mod+$left focus left
+    $mod+$down focus down
+    $mod+$up focus up
+    $mod+$right focus right
+    
+# Or use $mod+[up|down|left|right]
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
 
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move the focused window with the same, but add Shift
+    $mod+Shift+$left move left
+    $mod+Shift+$down move down
+    $mod+Shift+$up move up
+    $mod+Shift+$right move right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Ditto, with arrow keys
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
+}
 
 ###############################################################################
 # Workspaces:
 ###############################################################################
 
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+bindsym {
 
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Switch to workspace
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+    $mod+5 workspace number 5
+    $mod+6 workspace number 6
+    $mod+7 workspace number 7
+    $mod+8 workspace number 8
+    $mod+9 workspace number 9
+    $mod+0 workspace number 10
+
+# Move focused container to workspace
+    $mod+Shift+1 move container to workspace number 1
+    $mod+Shift+2 move container to workspace number 2
+    $mod+Shift+3 move container to workspace number 3
+    $mod+Shift+4 move container to workspace number 4
+    $mod+Shift+5 move container to workspace number 5
+    $mod+Shift+6 move container to workspace number 6
+    $mod+Shift+7 move container to workspace number 7
+    $mod+Shift+8 move container to workspace number 8
+    $mod+Shift+9 move container to workspace number 9
+    $mod+Shift+0 move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+}
 
 ###############################################################################
 # Layout stuff:
 ###############################################################################
 
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+bindsym {
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+    $mod+b splith
+    $mod+v splitv
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Switch the current container between different layout styles
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Make the current focus fullscreen
+    $mod+f fullscreen
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Toggle the current focus between tiling and floating mode
+    $mod+Shift+space floating toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-        
+# Swap focus between the tiling area and the floating area
+    $mod+space focus mode_toggle
+
+# Move focus to the parent container
+    $mod+a focus parent
+}
+
 ###############################################################################
 # Scratchpad:
 ###############################################################################
-        
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
+bindsym {
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    $mod+minus scratchpad show
+}
 
-###############################################################################
+#
 # Resizing containers:
-###############################################################################
-
+#
+bindsym $mod+r mode "resize"
 mode "resize" {
+    bindsym {
+
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    $left resize shrink width 10px
+    $down resize grow height 10px
+    $up resize shrink height 10px
+    $right resize grow width 10px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    Left resize shrink width 10px
+    Down resize grow height 10px
+    Up resize shrink height 10px
+    Right resize grow width 10px
 
     # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    Return mode "default"
+    Escape mode "default"
+    }
 }
-
-bindsym $mod+r mode "resize"
 
 bar {
     swaybar_command waybar
@@ -235,7 +252,6 @@ exec --no-startup-id "gnome-keyring-daemon --start --components=pkcs11,secrets,s
 # Starts bluetooth system tray applet
 #exec --no-startup-id blueman-applet
 
-
 ###############################################################################
 # Windows and UI
 ###############################################################################
@@ -255,7 +271,6 @@ input "type:keyboard" xkb_options caps:escape
 
 # Turns of mouse acceloration
 input "type:pointer" accel_profile flat
-
 
 ###############################################################################
 # Displays
