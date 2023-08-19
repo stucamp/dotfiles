@@ -267,8 +267,9 @@ libavahi-client3:amd64
 libavahi-common-data:amd64
 libavahi-common3:amd64
 libavc1394-0:amd64
+libavcodec-extra:amd64
 libavcodec-extra59:amd64
-libavcodec60:amd64
+libavcodec-extra60:amd64
 libavdevice60:amd64
 libavfilter9:amd64
 libavformat60:amd64

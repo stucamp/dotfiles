@@ -295,10 +295,9 @@ output DP-3 {
 # Screenshot
 ###############################################################################
 
-bindsym --release Print exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
-bindsym --release Shift+Print exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
-bindsym --release Ctrl+Print exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
-bindsym --release $mod+Print exec grimshot --notify save screen ~/Pictures/screenshots/screen_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+Prior exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+Next exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+Home exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
 
 ###############################################################################
 # Includes
