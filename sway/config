@@ -240,9 +240,6 @@ bar {
 # Start sway with volume at 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
 
-# Start sway with brightness at 30%
-#exec --no-startup-id light -S 30
-
 # Start clipman clipboard manager
 exec wl-paste -t text --watch clipman store --no-persist
 
@@ -275,6 +272,7 @@ input "type:keyboard" xkb_options caps:escape
 ###############################################################################
 # Displays
 ###############################################################################
+
 # Sets monitor laye landscape/landscape/profile
 output DP-1 {
     position 0,375
