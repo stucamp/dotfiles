@@ -109,6 +109,7 @@ firefox-esr
 firmware-amd-graphics
 firmware-atheros
 firmware-linux-free
+firmware-linux-nonfree
 firmware-misc-nonfree
 firmware-realtek
 firmware-samsung
@@ -223,12 +224,14 @@ initramfs-tools
 initramfs-tools-core
 installation-report
 intel-media-va-driver:amd64
+intel-microcode
 iproute2
 iputils-ping
 isc-dhcp-client
 isc-dhcp-common
 iso-codes
 ispell
+iucode-tool
 iw
 javascript-common
 jp2a
@@ -1019,6 +1022,7 @@ media-types
 mesa-va-drivers:amd64
 mesa-vdpau-drivers:amd64
 mesa-vulkan-drivers:amd64
+microsoft-edge-stable
 mime-support
 modemmanager
 mokutil
