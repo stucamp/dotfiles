@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias nvim="/opt/nvim-linux64/bin/nvim"
 alias hf="history | fzf -e"
-export PATH=$PATH:/usr/local/go/bin:/opt/zig
+export PATH=$PATH:/usr/local/go/bin:/opt/zig:/home/stu/.local/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

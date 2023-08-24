@@ -30,7 +30,6 @@ bluez-firmware
 bluez-obexd
 bsdextrautils
 bsdutils
-btop
 btrfs-progs
 bubblewrap
 build-essential
@@ -52,7 +51,6 @@ console-setup-linux
 coreutils
 cpio
 cpp
-cpp-12
 cpp-13
 cron
 cron-daemon-common
@@ -107,7 +105,7 @@ file
 findutils
 firefox-esr
 firmware-amd-graphics
-firmware-atheros
+firmware-iwlwifi
 firmware-linux-free
 firmware-linux-nonfree
 firmware-misc-nonfree
@@ -133,9 +131,9 @@ fonts-liberation
 fonts-liberation-sans-narrow
 fonts-liberation2
 fonts-noto-color-emoji
+fonts-noto-core
 fonts-noto-mono
 fonts-recommended
-fonts-stix
 fonts-symbola
 fonts-urw-base35
 foot
@@ -144,7 +142,6 @@ fzf
 g++
 g++-13
 gcc
-gcc-12
 gcc-12-base:amd64
 gcc-13
 gcc-13-base:amd64
@@ -259,7 +256,6 @@ libapparmor1:amd64
 libapt-pkg6.0:amd64
 libarchive13:amd64
 libargon2-1:amd64
-libaribb24-0:amd64
 libasan8:amd64
 libasound2:amd64
 libasound2-data
@@ -282,15 +278,12 @@ libavahi-client3:amd64
 libavahi-common-data:amd64
 libavahi-common3:amd64
 libavc1394-0:amd64
-libavcodec-extra:amd64
-libavcodec-extra59:amd64
-libavcodec-extra60:amd64
+libavcodec60:amd64
 libavdevice60:amd64
 libavfilter9:amd64
 libavformat60:amd64
 libavif15:amd64
 libavtp0:amd64
-libavutil57:amd64
 libavutil58:amd64
 libbabeltrace1:amd64
 libbdplus0:amd64
@@ -305,7 +298,6 @@ libblockdev-nvme3:amd64
 libblockdev-part3:amd64
 libblockdev-swap3:amd64
 libblockdev-utils3:amd64
-libblockdev2:amd64
 libblockdev3:amd64
 libbluetooth3:amd64
 libbluray2:amd64
@@ -457,7 +449,6 @@ libfuse3-3:amd64
 libgav1-1:amd64
 libgbm1:amd64
 libgc1:amd64
-libgcc-12-dev:amd64
 libgcc-13-dev:amd64
 libgcc-s1:amd64
 libgck-1-0:amd64
@@ -512,7 +503,7 @@ libgtk-layer-shell0
 libgtkmm-3.0-1v5:amd64
 libgudev-1.0-0:amd64
 libgupnp-1.6-0:amd64
-libgupnp-igd-1.0-4:amd64
+libgupnp-igd-1.6-0:amd64
 libhandy-1-0:amd64
 libharfbuzz-icu0:amd64
 libharfbuzz0b:amd64
@@ -691,8 +682,6 @@ libogg0:amd64
 libonig5:amd64
 libopenal-data
 libopenal1:amd64
-libopencore-amrnb0:amd64
-libopencore-amrwb0:amd64
 libopenexr-3-1-30:amd64
 libopenh264-7:amd64
 libopenjp2-7:amd64
@@ -714,7 +703,6 @@ libpangomm-1.4-1v5:amd64
 libpangoxft-1.0-0:amd64
 libpaper-utils
 libpaper1:amd64
-libparted-fs-resize0:amd64
 libparted2:amd64
 libpcap0.8:amd64
 libpci3:amd64
@@ -764,7 +752,6 @@ librav1e0:amd64
 libraw1394-11:amd64
 libreadline-dev:amd64
 libreadline8:amd64
-libregexp-ipv6-perl
 librhash0:amd64
 librist4:amd64
 librsvg2-2:amd64
@@ -989,6 +976,7 @@ linux-base
 linux-image-6.1.0-10-amd64
 linux-image-6.1.0-11-amd64
 linux-image-6.4.0-2-amd64
+linux-image-6.4.0-3-amd64
 linux-image-amd64
 linux-libc-dev:amd64
 llvm-14
@@ -1022,7 +1010,6 @@ media-types
 mesa-va-drivers:amd64
 mesa-vdpau-drivers:amd64
 mesa-vulkan-drivers:amd64
-microsoft-edge-stable
 mime-support
 modemmanager
 mokutil
@@ -1038,7 +1025,6 @@ netpbm
 network-manager
 nfs-common
 nftables
-notification-daemon
 nss-plugin-pem:amd64
 ntfs-3g
 ocl-icd-libopencl1:amd64

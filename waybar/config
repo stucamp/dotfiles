@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "position": "top",
+    "output": "DP-1",
     "height": 30,
     "modules-left": ["sway/workspaces", "custom/music"],
     "modules-center": ["sway/window", "sway/mode"],

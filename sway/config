@@ -275,16 +275,16 @@ input "type:keyboard" xkb_options caps:escape
 
 # Sets monitor laye landscape/landscape/profile
 output DP-1 {
-    position 0,0
-    background /home/stu/Pictures/wallpapers/sun.png fill
+    position 0,1440
+#    background /home/stu/Pictures/wallpapers/sun.png fill
 }
 output DP-2 {
-    position 0,1440
-    background /home/stu/Pictures/wallpapers/earth.jpg fill 
+    position 0,0
+#    background /home/stu/Pictures/wallpapers/earth.jpg fill 
 }
-output DP-3 {
-    position 2560,975
-    background /home/stu/Pictures/wallpapers/moon.jpg fill
+output DP-4 {
+    position 2560,675
+#    background /home/stu/Pictures/wallpapers/moon.jpg fill
     resolution 1920x1080 
     transform 90
 }
@@ -293,10 +293,10 @@ output DP-3 {
 # Screenshot
 ###############################################################################
 
-bindsym --release $mod+Prior exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
-bindsym --release $mod+Next exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
-bindsym --release $mod+Home exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
-
+bindsym --release $mod+F9 exec grimshot --notify save active ~/Pictures/screenshots/window_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+F10 exec grimshot --notify save area ~/Pictures/screenshots/area_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+F11 exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
+bindsym --release $mod+F12 exec grimshot --notify save output ~/Pictures/screenshots/output_$(date +%Y_%m_%d_%H%M%S).png
 ###############################################################################
 # Includes
 ###############################################################################
@@ -304,4 +304,4 @@ bindsym --release $mod+Home exec grimshot --notify save output ~/Pictures/screen
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*
 
-focus output DP-2
+focus output DP-1
