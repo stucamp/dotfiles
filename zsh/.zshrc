@@ -102,8 +102,13 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias nvim="/opt/nvim-linux64/bin/nvim"
 alias hf="history | fzf -e"
-export PATH=$PATH:/usr/local/go/bin:/opt/zig:/home/stu/.local/bin
+alias cat="batcat"
+alias ls="exa"
+alias tree="exa --tree"
 
+eval "$(zoxide init zsh)"
+
+export PATH=$PATH:/usr/local/go/bin:/opt/zig
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
