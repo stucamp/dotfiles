@@ -17,6 +17,7 @@ base-files
 base-passwd
 bash
 bash-completion
+bat
 bind9-dnsutils
 bind9-host
 bind9-libs:amd64
@@ -29,7 +30,6 @@ bluez-firmware
 bluez-obexd
 bsdextrautils
 bsdutils
-btop
 btrfs-progs
 bubblewrap
 build-essential
@@ -94,7 +94,9 @@ efibootmgr
 eject
 emacsen-common
 enchant-2
+entr
 ethtool
+exa
 exfatprogs
 f2fs-tools
 fakeroot
@@ -336,6 +338,7 @@ libclutter-1.0-0:amd64
 libclutter-1.0-common
 libclutter-gst-3.0-0:amd64
 libclutter-gtk-1.0-0:amd64
+libcmark0.30.2:amd64
 libcodec2-1.1:amd64
 libcogl-common
 libcogl-pango20:amd64
@@ -454,6 +457,7 @@ libgee-0.8-2:amd64
 libgfortran5:amd64
 libgif7:amd64
 libgirepository-1.0-1:amd64
+libgit2-1.5:amd64
 libgl1:amd64
 libgl1-mesa-dri:amd64
 libglapi-mesa:amd64
@@ -492,7 +496,6 @@ libgtk-layer-shell0
 libgtkmm-3.0-1v5:amd64
 libgudev-1.0-0:amd64
 libgupnp-1.6-0:amd64
-libgupnp-igd-1.0-4:amd64
 libgupnp-igd-1.6-0:amd64
 libhandy-1-0:amd64
 libharfbuzz-icu0:amd64
@@ -513,6 +516,7 @@ libhttp-daemon-perl
 libhttp-date-perl
 libhttp-message-perl
 libhttp-negotiate-perl
+libhttp-parser2.9:amd64
 libhunspell-1.7-0:amd64
 libhwasan0:amd64
 libhwy1:amd64
@@ -611,6 +615,8 @@ libmailtools-perl
 libmanette-0.2-0:amd64
 libmaxminddb0:amd64
 libmbedcrypto7:amd64
+libmbedtls14:amd64
+libmbedx509-1:amd64
 libmbim-glib4:amd64
 libmbim-proxy
 libmbim-utils
@@ -844,6 +850,7 @@ libunwind8:amd64
 libupower-glib3:amd64
 liburi-perl
 libusb-1.0-0:amd64
+libutempter0:amd64
 libutf8proc2:amd64
 libuuid1:amd64
 libuv1:amd64
@@ -998,6 +1005,8 @@ man-db
 manpages
 manpages-dev
 mawk
+mc
+mc-data
 media-types
 mesa-va-drivers:amd64
 mesa-vdpau-drivers:amd64
@@ -1026,6 +1035,7 @@ openssl
 os-prober
 p11-kit
 p11-kit-modules:amd64
+parallel
 parted
 passwd
 patch
@@ -1121,6 +1131,7 @@ swayidle
 swayimg
 swaykbdd
 swaylock
+sysstat
 systemd
 systemd-dev
 systemd-sysv
@@ -1131,8 +1142,11 @@ task-english
 tasksel
 tasksel-data
 timgm6mb-soundfont
+tldr
+tldr-hs
 tlp
 tlp-rdw
+tmux
 traceroute
 tzdata
 ucf
@@ -1189,6 +1203,7 @@ yudit-common
 zip
 zlib1g:amd64
 zlib1g-dev:amd64
+zoxide
 zsh
 zsh-common
 zstd
