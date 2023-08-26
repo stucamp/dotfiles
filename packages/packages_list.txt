@@ -113,6 +113,7 @@ firmware-misc-nonfree
 firmware-samsung
 fontconfig
 fontconfig-config
+fonts-anonymous-pro
 fonts-dejavu
 fonts-dejavu-core
 fonts-dejavu-extra
@@ -492,6 +493,7 @@ libgtkmm-3.0-1v5:amd64
 libgudev-1.0-0:amd64
 libgupnp-1.6-0:amd64
 libgupnp-igd-1.0-4:amd64
+libgupnp-igd-1.6-0:amd64
 libhandy-1-0:amd64
 libharfbuzz-icu0:amd64
 libharfbuzz0b:amd64
@@ -966,6 +968,7 @@ linux-base
 linux-image-6.1.0-10-amd64
 linux-image-6.1.0-11-amd64
 linux-image-6.4.0-2-amd64
+linux-image-6.4.0-3-amd64
 linux-image-amd64
 linux-libc-dev:amd64
 llvm-14

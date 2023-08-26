@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: "Firacode";
+    font-family: "anonymouspro";
     font-size: 16px;
     min-height: 0;
     color: #ebdbb2;
@@ -33,7 +33,7 @@ window#waybar {
     color: white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+#clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
     padding: 0 5px;
     margin: 0 10px;
 }

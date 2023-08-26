@@ -25,7 +25,7 @@ set $menu wofi --show drun
 set $lock swaylock -c 000000
 exec swayidle -w \
         timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * power off"' \
+        timeout 600 'light -S 0 -s sysfs/leds/tpacpi::kbd_backlight && swaymsg "output * power off"' \
         resume 'swaymsg "output * power on"' \
         before-sleep 'swaylock -f -c 000000'
 #
