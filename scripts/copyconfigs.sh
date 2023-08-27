@@ -1,9 +1,8 @@
 #!/bin/sh
 
-TMP=$(pwd)
-GIT_LOC=${TMP%/*}
+GIT_LOC="../dotconfig"
 
-dpkg-query -f '${binary:Package}\n' -W > ${GIT_LOC}/packages/packages_list.txt
+dpkg-query -f '${binary:Package}\n' -W > ../packages/packages_list.txt
 
 ZSH=${HOME}/.zshrc
 if [ -f "$ZSH" ]; then
