@@ -285,7 +285,7 @@ output DP-2 {
 output DP-4 {
     position 2560,675
 #    background /home/stu/Pictures/wallpapers/moon.jpg fill
-    resolution 1920x1080 
+    resolution 1920x1080
     transform 90
 }
 
