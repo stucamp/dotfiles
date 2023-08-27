@@ -1,6 +1,6 @@
 elpa/
 ido.last
 smex-items
-nvim/plugin
-nvim/pack
-nvim/lazy-lock.json
+dotconfig/nvim/plugin
+dotconfig/nvim/pack
+dotconfig/nvim/lazy-lock.json
